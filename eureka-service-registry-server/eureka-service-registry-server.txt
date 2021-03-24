@@ -1,0 +1,33 @@
+08-06-2020:
+
+***EurekaServer:
+@SpringBootApplication
+@EnableEurekaServer
+
+application.properties file
+# Application config
+server.port=2221
+spring.application.name=EurekaServer
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+eureka.client.service-url.defaultZone= http://localhost:2221/eureka
+
+In pom.xml:
+<spring-cloud.version>Hoxton.SR5</spring-cloud.version>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
